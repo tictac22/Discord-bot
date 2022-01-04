@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "bot": "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "@discordjs/builders": "^0.11.0",
