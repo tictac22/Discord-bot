@@ -2,11 +2,12 @@
 module.exports = {
     name:"messageCreate",
     async execute(message) {
+        if(message.member.user.bot) return
         const prefix = message.content.charAt(0)
         if(prefix !== "?") return 
 	    const commandLine = message.content.trim().slice(prefix.length).split(" ")[0].toLowerCase();
-        const query = message.content.split (" ")[1];
-        
+        const query = message.content.split(" ").slice(1).join(" ").trim()
+        console.log(query)
         const command = message.client.commands.get(commandLine);
         if (!command) return;
         try {
