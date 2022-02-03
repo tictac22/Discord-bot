@@ -1,5 +1,6 @@
 const { MessageEmbed } = require('discord.js');
 
-module.exports = text => {
+const botMessage = text => {
     return new MessageEmbed().setTitle(`${text}`)
 }
+module.exports = botMessage

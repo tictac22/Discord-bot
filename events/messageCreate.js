@@ -12,8 +12,11 @@ module.exports = {
         try {
             await command.execute(message,params);
         } catch (error) {
-            console.error(error);
-            await message.reply({ content: 'something went wrong', ephemeral: true });
+            const errorMessage = error.message;
+            if(errorMessage.match("reading 'id'")) {
+                return message.reply({ content: "By this request I didn't find any song, please retry with correct spelling", ephemeral: true });
+            }
+            message.reply({ content: 'something went wrong', ephemeral: true });
         }
     }
 }
