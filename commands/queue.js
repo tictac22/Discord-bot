@@ -1,8 +1,8 @@
-const { SlashCommandBuilder } =  require ('@discordjs/builders');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = { 
     data: new SlashCommandBuilder()
 		.setName('queue')
-        .setDescription('play a song from youtube!'),
+        .setDescription('List the music in the queue'),
     async execute(message,params) {
         const {client:{distube}} = message
         const queue = distube.getQueue(message)
