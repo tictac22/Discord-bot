@@ -3,7 +3,7 @@ const fs = require("fs");
 const { Client, Intents, Collection } = require("discord.js");
 const { DisTube } = require("distube");
 const { SpotifyPlugin } = require("@distube/spotify");
-const { DISCORD_TOKEN, SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET } = require('./config.json');
+require('dotenv').config()
 
 const client = new Client({
 	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_VOICE_STATES],
@@ -36,8 +36,8 @@ const distube = new DisTube(client, {
 		parallel: true,
 		emitEventsAfterFetching: false,
 		api: {
-			clientId: SPOTIFY_CLIENT_ID,
-			clientSecret: SPOTIFY_CLIENT_SECRET,
+			clientId: process.env.SPOTIFY_CLIENT_ID,
+			clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
 		},
 	})]
 });
@@ -62,4 +62,4 @@ distube
 		console.error(e);
 	});
 client.distube = distube;
-client.login(DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN);

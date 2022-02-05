@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "dependencies": {
     "@discordjs/builders": "^0.11.0",
@@ -16,6 +17,7 @@
     "discord-api-types": "^0.26.1",
     "discord.js": "^13.5.0",
     "distube": "^3.3.0",
+    "dotenv": "^16.0.0",
     "ffmpeg-static": "^4.4.1",
     "libsodium-wrappers": "^0.7.9"
   },

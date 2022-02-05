@@ -4,7 +4,7 @@ const { Permissions } = require('discord.js');
 module.exports = { 
     data: new SlashCommandBuilder()
 		.setName('prefix')
-        .setDescription('Changing a prefix'),
+        .setDescription('Changing a prefix of all commands'),
     async execute(message,params) {
         const {client,channel,member} = message
         if(params.length > 2) {

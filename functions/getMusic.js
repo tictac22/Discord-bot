@@ -1,5 +1,4 @@
 const fetch = require('cross-fetch');
-const {YOUTUBE_KEY} = require("../config.json");
 const isUrl = require('./isUrl');
 const getMusicInfo = async (param) => {
     const url = isUrl(param);
@@ -8,7 +7,7 @@ const getMusicInfo = async (param) => {
             link:param
         }
     }
-    const linkto = encodeURI(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=${YOUTUBE_KEY}&q=${param}`)
+    const linkto = encodeURI(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&key=${process.env.YOUTUBE_KEY}&q=${param}`)
     const youtubeVideoData = await fetch(linkto)
     const youtubeVideoDataJson = await youtubeVideoData.json();
     return {
